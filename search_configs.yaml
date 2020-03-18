@@ -1,0 +1,19 @@
+serviceConfig:
+  scheme: http://
+  hostName: 0.0.0.0
+  port: 1732
+  path: /api
+
+loggerConfig:
+  outputDir: ./logs/
+  outputFile: search.log
+
+databaseConfig:
+  dbUsername: root
+  dbPassword: 141214
+  dbHostname: localhost
+  dbPort: 3306
+  dbDriver: com.mysql.cj.jdbc.Driver;
+  dbName: 125_search_db
+  dbSettings: ''
+

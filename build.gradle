@@ -1,0 +1,43 @@
+plugins {
+    // Apply the java plugin to add support for Java
+    id 'java'
+    // Apply support for Intellij Ultimate IDEA
+    id 'idea'
+    // Apply the application plugin to add support for building an application
+    id 'application'
+    // Apply support for creating fat JARs
+    id 'com.github.johnrengelman.shadow' version '4.0.4'
+}
+
+group 'com.cs125.personalaccountant'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    jcenter()
+    mavenLocal()
+    mavenCentral()
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+    maven { url "https://oss.sonatype.org/content/repositories/releases/" }
+}
+
+dependencies {
+    implementation 'com.google.guava:guava:27.0.1-jre'
+    implementation group: 'org.glassfish.jersey', name: 'project', version: '2.28', ext: 'pom'
+    implementation group: 'org.glassfish.jersey.core', name: 'jersey-server', version: '2.28'
+    implementation group: 'org.glassfish.jersey.core', name: 'jersey-common', version: '2.28'
+    implementation group: 'org.glassfish.jersey.containers', name: 'jersey-container-grizzly2-http', version: '2.28'
+    implementation group: 'org.glassfish.jersey.inject', name: 'jersey-hk2', version: '2.28'
+    implementation group: 'org.glassfish.jersey.media', name: 'jersey-media-json-jackson', version: '2.28'
+    implementation group: 'org.glassfish.grizzly', name: 'grizzly-http-servlet', version: '2.4.4'
+    implementation group: 'org.glassfish.grizzly', name: 'grizzly-http-server', version: '2.4.4'
+    implementation group: 'com.fasterxml.jackson.jaxrs', name: 'jackson-jaxrs-json-provider', version: '2.9.8'
+    implementation group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-yaml', version: '2.9.8'
+    implementation group: 'javax.ws.rs', name: 'javax.ws.rs-api', version: '2.1.1'
+    implementation group: 'commons-codec', name: 'commons-codec', version: '1.12'
+    implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.15'
+
+}
+
+mainClassName = "com.cs125.personalaccountant.BasicService"
