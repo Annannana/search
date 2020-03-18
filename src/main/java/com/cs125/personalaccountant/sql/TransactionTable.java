@@ -40,7 +40,7 @@ public class TransactionTable {
             e.printStackTrace();
         }
     }
-    select amount, createTime from transactions where email="jingyuc2@uci.edu" and categoryId=1;
+
     public static int viewCategory(Recommendation recommendation){
         String query = "select amount,createTime from transactions where email=\"" + recommendation.getEmail() + "\" and categoryId=" + recommendation.getCategoryId();
         ResultSet resultSet = SqlUtils.view(query);
@@ -50,14 +50,15 @@ public class TransactionTable {
             while (resultSet.next()) {
                 totalMoney += resultSet.getInt("amount");
                 Timestamp t = resultSet.getTimestamp("createTime");
-                totalTime += t.
-                    long totalMoney = resultSet.getLong("totalMoney");
-                    long totalTime = resultSet.getLong("totalTime");
-                    int counter = resultSet.getInt("counter");
-                    int budget = (int)(totalMoney/counter);
-                    int time = (int)(totalTime/counter);
-                    recommendation.setTime(new Timestamp(time));
-                    return budget;
+                //totalTime += t.
+//                    long totalMoney = resultSet.getLong("totalMoney");
+//                    long totalTime = resultSet.getLong("totalTime");
+//                    int counter = resultSet.getInt("counter");
+//                    int budget = (int)(totalMoney/counter);
+//                    int time = (int)(totalTime/counter);
+//                    //recommendation.setTime(new Timestamp(time));
+//                    return budget;
+                return 1;
             }
         } catch (SQLException e) {
             e.printStackTrace();

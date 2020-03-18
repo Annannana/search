@@ -176,7 +176,7 @@ public class API {
         ServiceLogger.LOGGER.info("Finish adding to table.");
 
 
-        RecommendationTimes recommendationTimes = new RecommendationTimes(breakfast.getTime(), lunch.getTime(), dinner.getTime());
+        RecommendationTimes recommendationTimes = null; //new RecommendationTimes(breakfast.getTime(), lunch.getTime(), dinner.getTime());
         // response based on resultCode
         String message = APIUtils.convertToMessage(APIUtils.expectationGetSuccess);
         GeneralResponseModel generalResponseModel = new GeneralResponseModel(APIUtils.expectationGetSuccess, message, null, recommendationTimes);
