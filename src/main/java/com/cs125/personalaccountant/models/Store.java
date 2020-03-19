@@ -30,4 +30,52 @@ public class Store {
         this.averageSpending = averageSpending;
         this.distance = distance;
     }
+
+    public int getStoreId() {
+        return storeId;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public Time getOpenTime() {
+        return openTime;
+    }
+
+    public Time getCloseTime() {
+        return closeTime;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public float getRating() {
+        return rating;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public int getAverageSpending() {
+        return averageSpending;
+    }
+
+    public float getDistance() {
+        return distance;
+    }
 }

@@ -127,9 +127,8 @@ public class API {
         return APIUtils.response(generalResponseModel);
     }
 
-    @Path("recommendation/init")
+    @Path("init")
     @GET
-    @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response recommendation(@Context HttpHeaders headers) {
         String email = headers.getHeaderString("email");
@@ -142,7 +141,7 @@ public class API {
         int breakfastBudget = TransactionTable.viewCategory(breakfast);
         int lunchBudget = TransactionTable.viewCategory(lunch);
         int dinnerBudget = TransactionTable.viewCategory(dinner);
-        int sum = breakfastBudget+lunchBudget+dinnerBudget;
+        double sum = breakfastBudget+lunchBudget+dinnerBudget;
         double breakfastPerc = breakfastBudget/sum;
         double lunchPerc = lunchBudget/sum;
         double dinnerPerc = dinnerBudget/sum;
@@ -160,9 +159,8 @@ public class API {
             lunch.setBudget(APIUtils.ALERT_SIGN);
             dinner.setBudget(APIUtils.ALERT_SIGN);
         } else{
-            long diff = currentTimeMillis() - expectationRequestModel.getEndTime().getTime();
-            int days = (int)(diff / (1000*60*60*24));
-            double dayBudget = (expectationRequestModel.getExpected()-expectationRequestModel.getSpent())/days;
+            long diff = expectationRequestModel.getEndTime().getTime()- currentTimeMillis();
+            double dayBudget = (expectationRequestModel.getExpected()-expectationRequestModel.getSpent())/(diff / (86400000 ));
             breakfast.setBudget((int)(dayBudget*breakfastPerc));
             lunch.setBudget((int)(dayBudget*lunchPerc));
             dinner.setBudget((int)(dayBudget*dinnerPerc));
@@ -179,14 +177,13 @@ public class API {
         RecommendationTimes recommendationTimes =new RecommendationTimes(breakfast.getTime(), lunch.getTime(), dinner.getTime());
         // response based on resultCode
         String message = APIUtils.convertToMessage(APIUtils.recommendationSetSuccess);
-        GeneralResponseModel generalResponseModel = new GeneralResponseModel(APIUtils.recommendationSetSuccess, message, null, recommendationTimes);
+        RecommendationResponseModel generalResponseModel = new RecommendationResponseModel(APIUtils.recommendationSetSuccess, message, 1, recommendationTimes);
         ServiceLogger.LOGGER.config("Finished recommendation init.");
         return APIUtils.response(generalResponseModel);
     }
 
     @Path("recommendation/get/{meal}")
-    @POST
-    @Consumes(MediaType.APPLICATION_JSON)
+    @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response recommendationProcess( @Context HttpHeaders headers, @PathParam("meal") int meal) {
         // get time and budget
@@ -199,7 +196,7 @@ public class API {
 
         // response based on resultCode
         String message = APIUtils.convertToMessage(APIUtils.expectationGetSuccess);
-        GeneralResponseModel generalResponseModel = new GeneralResponseModel(APIUtils.expectationGetSuccess, message, null, stores);
+        RecommendationResponseModel generalResponseModel = new RecommendationResponseModel(APIUtils.expectationGetSuccess, message, stores);
         ServiceLogger.LOGGER.config("Finished recommendation stores.");
         return APIUtils.response(generalResponseModel);
     }

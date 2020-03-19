@@ -18,29 +18,29 @@ public class GeneralResponseModel implements ResponseModel {
     private ArrayList<TransactionRequestModel> transactions;
     @JsonProperty(required = false)
     private ExpectationRequestModel expectation;
-    @JsonProperty(required = false)
-    private RecommendationTimes recommendationTimes;
-    @JsonProperty(required = false)
-    private List<Store> stores;
-
-    public GeneralResponseModel(@JsonProperty(value = "resultCode", required = true) int resultCode,
-                                @JsonProperty(value = "message", required = true) String message, String sessionID,
-                                @JsonProperty(value = "stores", required = false) List<Store> stores) {
-        this.resultCode = resultCode;
-        this.message = message;
-        this.sessionID = sessionID;
-        this.stores = stores;
-    }
-
-    @JsonCreator
-    public GeneralResponseModel(@JsonProperty(value = "resultCode", required = true) int resultCode,
-                                @JsonProperty(value = "message", required = true) String message, String sessionID,
-                                @JsonProperty(value = "recommendationTimes", required = false) RecommendationTimes recommendationTimes) {
-        this.resultCode = resultCode;
-        this.message = message;
-        this.sessionID = sessionID;
-        this.recommendationTimes = recommendationTimes;
-    }
+//    @JsonProperty(required = false)
+//    private RecommendationTimes recommendationTimes;
+//    @JsonProperty(required = false)
+//    private List<Store> stores;
+//
+//    public GeneralResponseModel(@JsonProperty(value = "resultCode", required = true) int resultCode,
+//                                @JsonProperty(value = "message", required = true) String message, String sessionID,
+//                                @JsonProperty(value = "stores", required = false) List<Store> stores) {
+//        this.resultCode = resultCode;
+//        this.message = message;
+//        this.sessionID = sessionID;
+//        this.stores = stores;
+//    }
+//
+//
+//    public GeneralResponseModel(@JsonProperty(value = "resultCode", required = true) int resultCode,
+//                                @JsonProperty(value = "message", required = true) String message, String sessionID,
+//                                @JsonProperty(value = "recommendationTimes", required = false) RecommendationTimes recommendationTimes) {
+//        this.resultCode = resultCode;
+//        this.message = message;
+//        this.sessionID = sessionID;
+//        this.recommendationTimes = recommendationTimes;
+//    }
 
     @JsonCreator
     public GeneralResponseModel(
@@ -69,16 +69,16 @@ public class GeneralResponseModel implements ResponseModel {
         this.sessionID = sessionID;
         this.expectation = expectation;
     }
-
-    @JsonProperty(value = "recommendationTime", required = false)
-    public RecommendationTimes getRecommendationTimes() {
-        return recommendationTimes;
-    }
-
-    @JsonProperty(value = "stores", required = false)
-    public List<Store> getStores() {
-        return stores;
-    }
+//
+//    @JsonProperty(value = "recommendationTime", required = false)
+//    public RecommendationTimes getRecommendationTimes() {
+//        return recommendationTimes;
+//    }
+//
+//    @JsonProperty(value = "stores", required = false)
+//    public List<Store> getStores() {
+//        return stores;
+//    }
 
     @JsonProperty(value = "transactions", required = false)
     public ArrayList<TransactionRequestModel> getTransactions() {

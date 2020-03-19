@@ -21,15 +21,15 @@ public class StoreTable {
             while (resultSet.next()) {
                 Store s = new Store(resultSet.getInt("storeId"),
                         resultSet.getString("address"),
-                        resultSet.getString("name"),
+                        resultSet.getString("sname"),
                         resultSet.getString("phone"),
                         resultSet.getTime("openTime"),
                         resultSet.getTime("closeTime"),
                         resultSet.getDouble("longitude"),
                         resultSet.getDouble("latitude"),
                         resultSet.getFloat("rating"),
-                        resultSet.getString("description"),
-                        resultSet.getInt("averageSpending"),
+                        resultSet.getString("sdescription"),
+                        resultSet.getInt("averageSpend"),
                         resultSet.getFloat("distance"));
                 res.add(s);
             }
