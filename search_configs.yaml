@@ -1,6 +1,6 @@
 serviceConfig:
   scheme: http://
-  hostName: 0.0.0.0
+  hostName: 127.0.0.1
   port: 1732
   path: /api
 

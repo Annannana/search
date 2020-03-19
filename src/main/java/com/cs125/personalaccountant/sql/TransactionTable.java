@@ -6,8 +6,13 @@ import com.cs125.personalaccountant.utils.APIUtils;
 import com.cs125.personalaccountant.utils.SqlUtils;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Time;
 import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class TransactionTable {
     public static void insertTransaction(TransactionRequestModel transaction) {
@@ -47,20 +52,26 @@ public class TransactionTable {
         try {
             long totalMoney = 0;
             long totalTime = 0;
+            int counter = 0;
             while (resultSet.next()) {
                 totalMoney += resultSet.getInt("amount");
-                Timestamp t = resultSet.getTimestamp("createTime");
-                //totalTime += t.
-//                    long totalMoney = resultSet.getLong("totalMoney");
-//                    long totalTime = resultSet.getLong("totalTime");
-//                    int counter = resultSet.getInt("counter");
-//                    int budget = (int)(totalMoney/counter);
-//                    int time = (int)(totalTime/counter);
-//                    //recommendation.setTime(new Timestamp(time));
-//                    return budget;
-                return 1;
+                Timestamp timestamp = resultSet.getTimestamp("createTime");
+                String S = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(timestamp);
+                String[] parts = S.split(" ");
+                DateFormat dateFormat = new SimpleDateFormat("hh:mm:ss");
+                Date d = dateFormat.parse(parts[1]);
+                if(counter==0){
+                    totalTime = d.getTime();
+                }else{
+                    totalTime = (totalTime+d.getTime())/2;
+                }
+                counter++;
             }
-        } catch (SQLException e) {
+            Time t = new Time(totalTime-20*60000);
+            recommendation.setTime(t);
+            int budget = (int)(totalMoney/counter);
+            return budget;
+        } catch (SQLException| ParseException e) {
             e.printStackTrace();
         }
         return 1;

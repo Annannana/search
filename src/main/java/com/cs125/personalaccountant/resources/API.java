@@ -127,7 +127,7 @@ public class API {
         return APIUtils.response(generalResponseModel);
     }
 
-    @Path("recommendation")
+    @Path("recommendation/init")
     @GET
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -176,10 +176,10 @@ public class API {
         ServiceLogger.LOGGER.info("Finish adding to table.");
 
 
-        RecommendationTimes recommendationTimes = null; //new RecommendationTimes(breakfast.getTime(), lunch.getTime(), dinner.getTime());
+        RecommendationTimes recommendationTimes =new RecommendationTimes(breakfast.getTime(), lunch.getTime(), dinner.getTime());
         // response based on resultCode
-        String message = APIUtils.convertToMessage(APIUtils.expectationGetSuccess);
-        GeneralResponseModel generalResponseModel = new GeneralResponseModel(APIUtils.expectationGetSuccess, message, null, recommendationTimes);
+        String message = APIUtils.convertToMessage(APIUtils.recommendationSetSuccess);
+        GeneralResponseModel generalResponseModel = new GeneralResponseModel(APIUtils.recommendationSetSuccess, message, null, recommendationTimes);
         ServiceLogger.LOGGER.config("Finished recommendation init.");
         return APIUtils.response(generalResponseModel);
     }

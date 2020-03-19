@@ -32,6 +32,7 @@ public class GeneralResponseModel implements ResponseModel {
         this.stores = stores;
     }
 
+    @JsonCreator
     public GeneralResponseModel(@JsonProperty(value = "resultCode", required = true) int resultCode,
                                 @JsonProperty(value = "message", required = true) String message, String sessionID,
                                 @JsonProperty(value = "recommendationTimes", required = false) RecommendationTimes recommendationTimes) {
