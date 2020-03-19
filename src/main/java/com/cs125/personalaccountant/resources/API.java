@@ -129,7 +129,6 @@ public class API {
 
     @Path("recommendation/init")
     @GET
-    @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response recommendation(@Context HttpHeaders headers) {
         String email = headers.getHeaderString("email");
@@ -142,11 +141,12 @@ public class API {
         int breakfastBudget = TransactionTable.viewCategory(breakfast);
         int lunchBudget = TransactionTable.viewCategory(lunch);
         int dinnerBudget = TransactionTable.viewCategory(dinner);
-        int sum = breakfastBudget+lunchBudget+dinnerBudget;
+        double sum = breakfastBudget+lunchBudget+dinnerBudget;
         double breakfastPerc = breakfastBudget/sum;
         double lunchPerc = lunchBudget/sum;
         double dinnerPerc = dinnerBudget/sum;
         // init for new users
+        ServiceLogger.LOGGER.info(breakfastPerc + ", " + lunchPerc  + ", " + dinnerPerc);
         if(lunchBudget<=0||breakfastBudget<=0||dinnerBudget<=0){
             breakfastPerc = lunchPerc = dinnerPerc = 1/3;
         }
@@ -155,14 +155,17 @@ public class API {
         ExpectationRequestModel expectationRequestModel = ExpectationTable.viewExpectation(email);
 
         // time -> if exceed budget, alert user
+        ServiceLogger.LOGGER.info(expectationRequestModel.getExpected()+", "+expectationRequestModel.getSpent());
         if(expectationRequestModel.getExpected()-expectationRequestModel.getSpent()<=APIUtils.ALERT_EXPECTED){
+            ServiceLogger.LOGGER.info("ALERT");
             breakfast.setBudget(APIUtils.ALERT_SIGN);
             lunch.setBudget(APIUtils.ALERT_SIGN);
             dinner.setBudget(APIUtils.ALERT_SIGN);
         } else{
-            long diff = currentTimeMillis() - expectationRequestModel.getEndTime().getTime();
-            int days = (int)(diff / (1000*60*60*24));
-            double dayBudget = (expectationRequestModel.getExpected()-expectationRequestModel.getSpent())/days;
+            ServiceLogger.LOGGER.info("PERCENTAGE");
+            long diff = expectationRequestModel.getEndTime().getTime() - currentTimeMillis();
+            double dayBudget = (expectationRequestModel.getExpected()-expectationRequestModel.getSpent())/(diff / (86400000));
+            ServiceLogger.LOGGER.info(dayBudget+ " budget day");
             breakfast.setBudget((int)(dayBudget*breakfastPerc));
             lunch.setBudget((int)(dayBudget*lunchPerc));
             dinner.setBudget((int)(dayBudget*dinnerPerc));

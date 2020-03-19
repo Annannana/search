@@ -23,6 +23,16 @@ public class GeneralResponseModel implements ResponseModel {
     @JsonProperty(required = false)
     private List<Store> stores;
 
+    @JsonCreator
+    public GeneralResponseModel(
+            @JsonProperty(value = "resultCode", required = true) int resultCode,
+            @JsonProperty(value = "message", required = true) String message,
+            @JsonProperty (value = "seesionID", required = false)String sessionID) {
+        this.resultCode = resultCode;
+        this.message = message;
+        this.sessionID = sessionID;
+    }
+
     public GeneralResponseModel(@JsonProperty(value = "resultCode", required = true) int resultCode,
                                 @JsonProperty(value = "message", required = true) String message, String sessionID,
                                 @JsonProperty(value = "stores", required = false) List<Store> stores) {
@@ -32,7 +42,7 @@ public class GeneralResponseModel implements ResponseModel {
         this.stores = stores;
     }
 
-    @JsonCreator
+
     public GeneralResponseModel(@JsonProperty(value = "resultCode", required = true) int resultCode,
                                 @JsonProperty(value = "message", required = true) String message, String sessionID,
                                 @JsonProperty(value = "recommendationTimes", required = false) RecommendationTimes recommendationTimes) {
@@ -40,15 +50,6 @@ public class GeneralResponseModel implements ResponseModel {
         this.message = message;
         this.sessionID = sessionID;
         this.recommendationTimes = recommendationTimes;
-    }
-
-    @JsonCreator
-    public GeneralResponseModel(
-            @JsonProperty(value = "resultCode", required = true) int resultCode,
-            @JsonProperty(value = "message", required = true) String message, String sessionID) {
-        this.resultCode = resultCode;
-        this.message = message;
-        this.sessionID = sessionID;
     }
 
     public GeneralResponseModel(

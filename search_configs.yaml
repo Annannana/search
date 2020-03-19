@@ -10,7 +10,7 @@ loggerConfig:
 
 databaseConfig:
   dbUsername: root
-  dbPassword: 141214
+  dbPassword: Tortilla@1
   dbHostname: localhost
   dbPort: 3306
   dbDriver: com.mysql.cj.jdbc.Driver;

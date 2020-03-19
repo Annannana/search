@@ -63,7 +63,7 @@ set CMD_LINE_ARGS=%*
 :execute
 @rem Setup the command line
 
-set CLASSPATH=%APP_HOME%\lib\search-1.0-SNAPSHOT.jar
+set CLASSPATH=%APP_HOME%\lib\search-1.0-SNAPSHOT-all.jar
 
 @rem Execute search
 "%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %SEARCH_OPTS%  -jar "%CLASSPATH%" %CMD_LINE_ARGS%
