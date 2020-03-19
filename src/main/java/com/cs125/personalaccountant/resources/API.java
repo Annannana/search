@@ -91,11 +91,12 @@ public class API {
         return APIUtils.response(generalResponseModel);
     }
 
-    @Path("expectation/add/{add}")
+    @Path("expectation/add")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response expectationAdd( @Context HttpHeaders headers, @PathParam("add") int add) {
+    public Response expectationAdd(@Context HttpHeaders headers) {
+        int add = Integer.parseInt(headers.getHeaderString("add"));
         String email = headers.getHeaderString("email");
         ServiceLogger.LOGGER.config("Connected to expectation add.");
 
@@ -113,7 +114,7 @@ public class API {
     @GET
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response expectationAdd( @Context HttpHeaders headers) {
+    public Response expectationGet( @Context HttpHeaders headers) {
         String email = headers.getHeaderString("email");
         ServiceLogger.LOGGER.config("Connected to expectation get.");
 
@@ -182,11 +183,12 @@ public class API {
         return APIUtils.response(generalResponseModel);
     }
 
-    @Path("recommendation/get/{meal}")
+    @Path("recommendation/get")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response recommendationProcess( @Context HttpHeaders headers, @PathParam("meal") int meal) {
+    public Response recommendationProcess( @Context HttpHeaders headers) {
         // get time and budget
+        int meal = Integer.parseInt(headers.getHeaderString("meal"));
         Recommendation recommendation = new Recommendation(headers.getHeaderString("email"), meal);
         RecommendationTable.retrieveRecommendation(recommendation);
 

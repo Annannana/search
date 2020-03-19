@@ -4,11 +4,7 @@
     <list default="true" id="1140431d-f3a6-4409-a156-646df4616ef5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/search.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/search.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cs125/personalaccountant/models/GeneralResponseModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cs125/personalaccountant/models/GeneralResponseModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cs125/personalaccountant/models/RecommendationResponseModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cs125/personalaccountant/models/RecommendationResponseModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cs125/personalaccountant/models/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cs125/personalaccountant/models/Store.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/cs125/personalaccountant/resources/API.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cs125/personalaccountant/resources/API.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cs125/personalaccountant/sql/StoreTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cs125/personalaccountant/sql/StoreTable.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -48,8 +44,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/cs125/personalaccountant/resources/API.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="106">
-              <caret line="186" column="41" lean-forward="true" selection-start-line="186" selection-start-column="41" selection-end-line="186" selection-end-column="41" />
+            <state relative-caret-position="3">
+              <caret line="110" column="5" lean-forward="true" selection-start-line="110" selection-start-column="5" selection-end-line="110" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -84,8 +80,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/cs125/personalaccountant/sql/TransactionTable.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="71" column="49" selection-start-line="71" selection-start-column="42" selection-end-line="71" selection-end-column="49" />
+            <state relative-caret-position="204">
+              <caret line="18" column="101" selection-start-line="18" selection-start-column="97" selection-end-line="18" selection-end-column="101" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -202,6 +198,9 @@
       <find>RecommendationTimes</find>
       <find>current</find>
       <find>RecommendationResponseModel</find>
+      <find>long</find>
+      <find>expectation</find>
+      <find>error</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -384,16 +383,15 @@
       <workItem from="1581915590128" duration="674000" />
       <workItem from="1584428949112" duration="37315000" />
       <workItem from="1584575117844" duration="209000" />
-      <workItem from="1584575867453" duration="3849000" />
+      <workItem from="1584575867453" duration="7065000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44306000" />
+    <option name="totallyTimeSpent" value="47522000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2287793" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -411,7 +409,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.31914893" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.320922" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Build" order="11" weight="0.20350109" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
@@ -432,18 +430,6 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/cs125/personalaccountant/resources/API.java</url>
-          <line>153</line>
-          <properties />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/com/cs125/personalaccountant/logger/ServiceFormatter.java">
@@ -666,16 +652,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cs125/personalaccountant/sql/TransactionTable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="71" column="49" selection-start-line="71" selection-start-column="42" selection-end-line="71" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/cs125/personalaccountant/models/RecommendationTimes.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -773,10 +749,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cs125/personalaccountant/sql/TransactionTable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="18" column="101" selection-start-line="18" selection-start-column="97" selection-end-line="18" selection-end-column="101" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/cs125/personalaccountant/resources/API.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="106">
-          <caret line="186" column="41" lean-forward="true" selection-start-line="186" selection-start-column="41" selection-end-line="186" selection-end-column="41" />
+        <state relative-caret-position="3">
+          <caret line="110" column="5" lean-forward="true" selection-start-line="110" selection-start-column="5" selection-end-line="110" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

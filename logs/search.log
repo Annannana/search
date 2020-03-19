@@ -1,33 +1,29 @@
-[2020/03/18 20:13:58][CONFIG][initLogger]  Logging initialized.
-[2020/03/18 20:13:58][CONFIG][initService]  Starting service...
-[2020/03/18 20:13:58][CONFIG][currentConfigs]  Scheme: http://
-[2020/03/18 20:13:58][CONFIG][currentConfigs]  Hostname: 127.0.0.1
-[2020/03/18 20:13:58][CONFIG][currentConfigs]  Port: 1732
-[2020/03/18 20:13:58][CONFIG][currentConfigs]  Path: /api
-[2020/03/18 20:13:58][CONFIG][currentConfigs]  Logger output directory: ./logs/
-[2020/03/18 20:13:58][CONFIG][currentConfigs]  dbUsername: root
-[2020/03/18 20:13:58][CONFIG][currentConfigs]  dbPassword: ****
-[2020/03/18 20:13:58][CONFIG][currentConfigs]  dbPort: 3306
-[2020/03/18 20:13:58][CONFIG][currentConfigs]  dbDriver: com.mysql.cj.jdbc.Driver;
-[2020/03/18 20:13:58][CONFIG][currentConfigs]  dbName: 125_search_db
-[2020/03/18 20:13:58][CONFIG][currentConfigs]  dbSettings: 
-[2020/03/18 20:13:58][CONFIG][connectToDatabase]  Connecting to database...
-[2020/03/18 20:13:58][CONFIG][connectToDatabase]  Database URL: jdbc:mysql://localhost:3306/125_search_db
-[2020/03/18 20:14:00][CONFIG][connectToDatabase]  Connected to database: com.mysql.cj.jdbc.ConnectionImpl@6c6cb480
-[2020/03/18 20:14:00][CONFIG][initHTTPServer]  Initializing HTTP server...
-[2020/03/18 20:14:00][CONFIG][initHTTPServer]  Build uri
-[2020/03/18 20:14:00][CONFIG][initHTTPServer]  ResourceConfig.
-[2020/03/18 20:14:00][CONFIG][initHTTPServer]  Registed.
-[2020/03/18 20:14:01][CONFIG][initHTTPServer]  HTTP server made.
-[2020/03/18 20:14:01][CONFIG][initHTTPServer]  Uri: http://127.0.0.1:1732/api
-[2020/03/18 20:14:01][CONFIG][initHTTPServer]  HTTP server started.
-[2020/03/18 20:14:01][CONFIG][initService]  Service initialized.
-[2020/03/18 20:14:14][CONFIG][transactionAdd]  Connected to transaction add.
-[2020/03/18 20:14:14][CONFIG][convertToPOJO]  Finished converting to POJO.
-[2020/03/18 20:14:15][INFO][view]  Trying query: com.mysql.cj.jdbc.ClientPreparedStatement: select * from expectations where email="jingyuc2@uci.edu" and expectationStatusId=1
-[2020/03/18 20:14:15][INFO][view]  Query succeeded.
-[2020/03/18 20:14:15][INFO][update]  Trying query: com.mysql.cj.jdbc.ClientPreparedStatement: update expectations set spent=20, expected=2000 where expectationId = 2
-[2020/03/18 20:14:15][INFO][update]  Query succeeded.
-[2020/03/18 20:14:15][INFO][insert]  Trying query: com.mysql.cj.jdbc.ClientPreparedStatement: insert into transactions(email, createTime, amount, details, categoryId, longitude, latitude, expectationId) value ("jingyuc2@uci.edu", "2020-03-18 20:14:15.0", 20, " banana", 2, 33.64954,-117.83239, 2)
-[2020/03/18 20:14:15][INFO][insert]  Query succeeded.
-[2020/03/18 20:14:15][CONFIG][transactionAdd]  Finished add.
+[2020/03/18 21:47:24][CONFIG][initLogger]  Logging initialized.
+[2020/03/18 21:47:24][CONFIG][initService]  Starting service...
+[2020/03/18 21:47:24][CONFIG][currentConfigs]  Scheme: http://
+[2020/03/18 21:47:24][CONFIG][currentConfigs]  Hostname: 127.0.0.1
+[2020/03/18 21:47:24][CONFIG][currentConfigs]  Port: 1732
+[2020/03/18 21:47:24][CONFIG][currentConfigs]  Path: /api
+[2020/03/18 21:47:24][CONFIG][currentConfigs]  Logger output directory: ./logs/
+[2020/03/18 21:47:24][CONFIG][currentConfigs]  dbUsername: root
+[2020/03/18 21:47:24][CONFIG][currentConfigs]  dbPassword: ****
+[2020/03/18 21:47:24][CONFIG][currentConfigs]  dbPort: 3306
+[2020/03/18 21:47:24][CONFIG][currentConfigs]  dbDriver: com.mysql.cj.jdbc.Driver;
+[2020/03/18 21:47:24][CONFIG][currentConfigs]  dbName: 125_search_db
+[2020/03/18 21:47:24][CONFIG][currentConfigs]  dbSettings: 
+[2020/03/18 21:47:24][CONFIG][connectToDatabase]  Connecting to database...
+[2020/03/18 21:47:24][CONFIG][connectToDatabase]  Database URL: jdbc:mysql://localhost:3306/125_search_db
+[2020/03/18 21:47:25][CONFIG][connectToDatabase]  Connected to database: com.mysql.cj.jdbc.ConnectionImpl@6c6cb480
+[2020/03/18 21:47:25][CONFIG][initHTTPServer]  Initializing HTTP server...
+[2020/03/18 21:47:25][CONFIG][initHTTPServer]  Build uri
+[2020/03/18 21:47:25][CONFIG][initHTTPServer]  ResourceConfig.
+[2020/03/18 21:47:25][CONFIG][initHTTPServer]  Registed.
+[2020/03/18 21:47:26][CONFIG][initHTTPServer]  HTTP server made.
+[2020/03/18 21:47:27][CONFIG][initHTTPServer]  Uri: http://127.0.0.1:1732/api
+[2020/03/18 21:47:27][CONFIG][initHTTPServer]  HTTP server started.
+[2020/03/18 21:47:27][CONFIG][initService]  Service initialized.
+[2020/03/18 21:47:29][INFO][view]  Trying query: com.mysql.cj.jdbc.ClientPreparedStatement: select * from recommendations where email="jingyuc2@uci.edu" and categoryId=1 and recommendationStatusId=1
+[2020/03/18 21:47:29][INFO][view]  Query succeeded.
+[2020/03/18 21:47:29][INFO][view]  Trying query: com.mysql.cj.jdbc.ClientPreparedStatement: select * from stores where "2020-03-18 21:47:29.684">openTime and "2020-03-18 21:47:29.684"<closeTime and averageSpend<11 ORDER BY distance asc, rating DESC, averageSpend asc; 
+[2020/03/18 21:47:29][INFO][view]  Query succeeded.
+[2020/03/18 21:47:29][CONFIG][recommendationProcess]  Finished recommendation stores.
